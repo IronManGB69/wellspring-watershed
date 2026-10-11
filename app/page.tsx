@@ -1,10 +1,18 @@
 import Link from "next/link";
-import { ArrowUpRight, MoveUpRight } from "lucide-react";
+import { ArrowUpRight, Landmark, HeartHandshake, Building2, ShieldCheck } from "lucide-react";
 import { ContactCTA } from "@/components/Footer";
 import ConnectionAtlas from "@/components/ConnectionAtlas";
 import FlowLines from "@/components/FlowLines";
 import HeroVideo from "@/components/HeroVideo";
 import { services, sectors, articles } from "@/lib/content";
+
+const sectorIcons = [Landmark, HeartHandshake, Building2, ShieldCheck];
+const sectorDescriptions = [
+  "Bringing residents, councils and partners into a clearer, more constructive conversation.",
+  "Connecting services and communities through coordinated relationships and shared understanding.",
+  "Making community voices part of the conversation, from early consultation to delivery.",
+  "Helping communities and agencies build trust, address concerns and respond together.",
+];
 
 export default function Home() {
   return <div className="home-v2">
@@ -47,11 +55,26 @@ export default function Home() {
       ].map(([n, title, copy]) => <details key={n} name="approach" open={n === '01'}><summary><span>{n}</span><h3>{title}</h3><span className="step-toggle">+</span></summary><p>{copy}</p></details>)}</div><Link href="/expertise/community-engagement" className="arrow-link">Our work with communities <span><ArrowUpRight size={19} /></span></Link></div>
     </section>
 
-    <section className="section sector-editorial">
+    <section className="section sector-editorial" aria-labelledby="sector-heading">
       <div className="container">
-        <div className="chapter-heading"><span>04 / WHO WE WORK WITH</span><span>ACROSS BOUNDARIES. AROUND PEOPLE.</span></div>
-        <div className="sector-editorial-heading" data-reveal><h2>Different worlds.<br /><em>Connected futures.</em></h2><p>We work where institutional responsibilities meet community experience. Every context is different. The need for trust is shared.</p></div>
-        <div className="sector-editorial-list">{sectors.map((s, i) => <Link href={`/sectors#${s.id}`} key={s.id} className="sector-editorial-row" data-reveal><span className="sector-index">0{i + 1}</span><h3>{s.title}</h3><p>{s.intro}</p><span className="sector-arrow"><MoveUpRight strokeWidth={1.3} /></span></Link>)}</div>
+        <div className="chapter-heading"><span>04 / WHO WE WORK WITH</span><span>DIFFERENT PERSPECTIVES. SHARED PROGRESS.</span></div>
+        <div className="sector-editorial-heading" data-reveal>
+          <h2 id="sector-heading">Different worlds.<br /><em>Common ground.</em></h2>
+          <p>We bring people and organisations closer — connecting public priorities with the everyday experiences of the communities they serve.</p>
+        </div>
+        <div className="sector-cards">
+          {sectors.map((s, i) => {
+            const Icon = sectorIcons[i];
+            return <Link href={`/sectors#${s.id}`} key={s.id} className="sector-card" data-reveal>
+              <div className="sector-card-top"><span className="sector-card-icon"><Icon size={28} strokeWidth={1.3} aria-hidden="true" /></span><span className="sector-card-number">0{i + 1} /</span></div>
+              <h3>{s.title}</h3>
+              <p>{sectorDescriptions[i]}</p>
+              <div className="sector-card-tags">{s.tags.slice(0, 2).map(tag => <span key={tag}>{tag}</span>)}</div>
+              <div className="sector-card-bottom"><span>Explore our work</span><ArrowUpRight size={21} strokeWidth={1.5} aria-hidden="true" /></div>
+            </Link>;
+          })}
+        </div>
+        <div className="sector-shared"><span className="sector-shared-dot" aria-hidden="true" /><p>Different responsibilities. One shared need for trust.</p><Link href="/sectors">See all sectors <ArrowUpRight size={17} /></Link></div>
       </div>
     </section>
 

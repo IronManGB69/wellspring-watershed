@@ -612,3 +612,37 @@ body { background: var(--paper); }
   .contact-form .form-bottom { align-items: stretch; }
   .contact-form .form-bottom > span { max-width: none; text-align: center; }
 }
+
+/* Sector pathways: distinct contexts, a shared visual language. */
+.sector-editorial { position: relative; overflow: hidden; background: radial-gradient(ellipse at 95% 0%, #dce7ce 0, transparent 50%), #eef1e6; }
+.sector-editorial-heading { align-items: center; margin: 48px 0; }
+.sector-editorial-heading p { max-width: 350px; font-size: 1rem; line-height: 1.8; }
+.sector-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.sector-card { display: flex; flex-direction: column; position: relative; padding: clamp(26px, 3vw, 40px); border: 1px solid #cdd8c4; border-radius: 16px; background: #f8f9f2; transition: background .25s, border-color .25s, box-shadow .25s; overflow: hidden; }
+.sector-card::after { content: ''; position: absolute; right: -60px; top: -60px; width: 220px; height: 220px; border: 1px solid #dce5d4; border-radius: 50%; pointer-events: none; }
+.sector-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; position: relative; z-index: 1; }
+.sector-card-icon { display: grid; place-items: center; width: 58px; height: 58px; border-radius: 50%; color: #153d38; background: #e6eddc; }
+.sector-card-number { font-size: .75rem; letter-spacing: .12em; color: #75866c; }
+.sector-card h3 { font-size: clamp(1.8rem, 2.8vw, 2.8rem); line-height: 1.14; max-width: 440px; margin-bottom: 18px; }
+.sector-card > p { font-size: .94rem; line-height: 1.75; max-width: 420px; color: #596951; margin-bottom: 25px; }
+.sector-card-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-bottom: 30px; }
+.sector-card-tags span { font-size: .68rem; padding: 7px 11px; border: 1px solid #d7dfce; border-radius: 30px; color: #53694b; line-height: 1.4; }
+.sector-card-bottom { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #d7dfce; padding-top: 21px; font-size: .8rem; color: #153d38; }
+.sector-card-bottom svg { transition: transform .25s; }
+.sector-card:hover { background: #fff; border-color: #8fa783; box-shadow: 0 16px 36px -24px #153d3840; }
+.sector-card:hover .sector-card-bottom svg { transform: translate(3px, -3px); }
+.sector-card:focus-visible { outline: 3px solid #56774b; outline-offset: 4px; }
+.sector-shared { display: flex; align-items: center; gap: 12px; padding-top: 30px; }
+.sector-shared-dot { width: 8px; height: 8px; border-radius: 50%; background: #759263; box-shadow: 0 0 0 5px #dce7d1; flex-shrink: 0; }
+.sector-shared p { font-size: .82rem; margin: 0; color: #596951; }
+.sector-shared a { display: inline-flex; align-items: center; gap: 14px; font-size: .82rem; margin-left: auto; border-bottom: 1px solid #aabc9e; padding-bottom: 5px; }
+@media (max-width: 700px) {
+ .sector-cards { grid-template-columns: 1fr; gap: 16px; }
+ .sector-editorial-heading { flex-direction: column; align-items: flex-start; gap: 24px; margin: 35px 0; }
+ .sector-editorial-heading h2 { font-size: clamp(2.6rem, 8vw, 3.3rem); }
+ .sector-card h3 { font-size: 2rem; }
+ .sector-card-top { margin-bottom: 24px; }
+ .sector-shared { flex-wrap: wrap; gap: 14px; }
+ .sector-shared a { margin: 10px 0 0 20px; }
+}
+@media (prefers-reduced-motion: reduce) { .sector-card, .sector-card-bottom svg { transition: none; } }
