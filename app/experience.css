@@ -14,7 +14,7 @@ body { background: var(--paper); }
 .button { border-radius: 100px; gap: 12px; }
 .button:active { transform: translateY(0); }
 .site-header { background: #f6f3eced; }
-.site-header.scrolled { background: #f6f3ecf2; backdrop-filter: blur(20px); }
+.site-header.scrolled:not(.menu-open) { background: #f6f3ecf2; backdrop-filter: blur(20px); }
 .site-header.on-hero:not(.scrolled):not(.menu-open) { background: linear-gradient(#071d1b38, transparent); }
 .navigation > a:not(.button) { font-size: .83rem; }
 .nav-cta { padding: 15px 28px; }

@@ -15,7 +15,7 @@ export default function ExperienceMotion() {
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.08 });
+    }, { threshold: 0, rootMargin: "0px 0px 100px 0px" });
     const elements = document.querySelectorAll('[data-reveal]');
     elements.forEach(el => {
       if (el.getBoundingClientRect().top > window.innerHeight) {

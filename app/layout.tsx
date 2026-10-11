@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
 import "./experience.css";
+import "./polish.css";
 import ExperienceMotion from "@/components/ExperienceMotion";
 export const metadata: Metadata = {
   title: {
