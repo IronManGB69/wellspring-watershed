@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { ArrowUpRight, MessageSquare } from "lucide-react";
 export default function ContactForm({
   initialTopic = "general",
 }: {
@@ -85,6 +86,10 @@ export default function ContactForm({
   ];
   return (
     <form ref={formRef} className="contact-form" onSubmit={submit}>
+      <div className="form-heading form-full">
+        <div className="form-heading-icon"><MessageSquare size={23} strokeWidth={1.5} /></div>
+        <div><span className="form-eyebrow">LET’S CONNECT</span><h2>Your next conversation</h2><p>A little context helps us bring the right people together.</p></div>
+      </div>
       <div className="form-field">
         <label htmlFor="name">Your name</label>
         <input
@@ -188,6 +193,7 @@ export default function ContactForm({
           disabled={status === "sending"}
         >
           {status === "sending" ? "Sending your enquiry…" : "Send your enquiry"}
+          <ArrowUpRight size={19} aria-hidden="true" />
         </button>
         <span>A good conversation starts here.</span>
       </div>

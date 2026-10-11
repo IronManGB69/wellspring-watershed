@@ -48,12 +48,7 @@ export default async function Contact({
                 contact@wellspring-watershed.com
               </a>
             </div>
-            <p className="contact-note">
-              For enquiries about our dedicated 24/7 rapid-response desk, select
-              crisis response below. This form is for service enquiries and does
-              not replace crisis-escalation or emergency-service channels. If
-              there is an immediate danger to life, contact the emergency services.
-            </p>
+
           </div>
           <ContactForm initialTopic={topic} />
         </div>
